@@ -134,4 +134,4 @@ Anti tic-tac-toe: actually interesting, one wrong move and you're cooked, respec
 
 ---
 
-*Made by someone who bored and forced to take an undergraduate course again in his master's degree*
+*Made by someone who was bored and forced to take an undergraduate course again in his master's degree*
