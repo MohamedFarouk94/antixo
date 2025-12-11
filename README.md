@@ -25,21 +25,22 @@ c++ -O3 -Wall -shared -std=c++17 -fPIC $(python3 -m pybind11 --includes) xo.cpp 
 python main.py
 ```
 
-If that doesn't work, Ask your favorite LLM.
+If that doesn't work, ask your favorite LLM.
 
 ## The Big Difference
 
 ### Regular XO
 ```
-Opening move scores: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+Opening move scores: [0, 0, 0; 0, 0, 0; 0, 0, 0]
 ```
+((Oh I don't think I have to state that this represents the board on the form [1st row, 2nd row, 3rd row]))
 Translation: "Pick whatever. It's a draw. Always."
 
 Corners, edges, center - doesn't matter. The game is solved and boring.
 
 ### Anti-XO
 ```
-Opening move scores: [-1, -1, -1, -1, 0, -1, -1, -1, -1]
+Opening move scores: [-1, -1, -1; -1, 0, -1; -1, -1, -1]
 ```
 Translation: "Pick center or lose."
 
@@ -57,10 +58,14 @@ In regular XO, you're trying to make lines. In Anti-XO, you're trying to NOT mak
 
 Here's a mid-game position:
 ```
-Board: X _ _ | _ O _ | _ _ _
+Board: 
 
-Regular XO:  [-, 0, 0, 0, -, 0, 0, 0, 0]  ← "meh, whatever"
-Anti-XO:     [-, -1, -1, -1, -, 0, -1, 0, 0]  ← "OH NO OH NO"
+X _ _
+_ O _
+_ _ _
+
+Regular XO:  [-, 0, 0; 0, -, 0; 0, 0, 0]  ← "meh, whatever"
+Anti-XO:     [-, -1, -1; -1, -, 0; -1, 0, 0]  ← "OH NO OH NO"
 ```
 
 Same board. Completely different optimal moves.
@@ -79,8 +84,7 @@ Same board. Completely different optimal moves.
 - When someone wins/loses, the three squares light up
   - Green in regular mode (yay!)
   - Red in anti mode (oops!)
-- Blue X's, yellow O's, purple zeros
-- Dark theme because it's 2024
+- Dark theme because why not
 
 ## Performance
 
