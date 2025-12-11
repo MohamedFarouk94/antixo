@@ -137,9 +137,9 @@ PYBIND11_MODULE(tictactoe_solver, m) {
         return 0;  
     });
 
-    m.def("solve", [](std::vector<int> board, bool mesere)-> std::vector<int> {    
-        int mode = mesere ? -1 : 1;
+    m.def("solve", [](std::vector<int> board, bool misere)-> std::vector<int> {    
+        int mode = misere ? -1 : 1;
         Position p = Position(board);
         return solve(p, mode);
-    }, py::arg("board"), py::arg("mesere"));
+    }, py::arg("board"), py::arg("misere"));
 }
