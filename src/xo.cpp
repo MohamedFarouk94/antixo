@@ -50,9 +50,9 @@ struct Position
         return -1;
     }
 
-    int canPlay(int col) const {
-        if(col < 0 || col >= 9) return false;
-        return board[col] == 0;
+    int canPlay(int cell) const {
+        if(cell < 0 || cell >= 9) return false;
+        return board[cell] == 0;
     }
 
     int nMoves() const {
@@ -71,9 +71,9 @@ struct Position
         return possibleMoves;
     }
 
-    Position play(int col) const {
+    Position play(int cell) const {
         Position p = Position(board);
-        p.board[col] = currentPlayer();
+        p.board[cell] = currentPlayer();
         return p;
 }
 };
