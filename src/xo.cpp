@@ -21,8 +21,6 @@ struct Position
             result += board[i] * power;
             power *= 3;
         }
-        // Multiply by a large number and add move count to make keys unique
-        return result * 100 + nMoves();
     }
 
     bool isFull() const {
@@ -81,9 +79,6 @@ struct Position
 };
 
 int minimax(const Position &p, int alpha, int beta, int mode = 1) {
-    // int k = p.key();
-    // if(memo.count(k)) return memo[k];
-
     int conclusion = p.concluded();
     if(conclusion == 0) return 0;
     if(conclusion == 1) return mode * (10 - p.nMoves());
