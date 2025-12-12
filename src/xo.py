@@ -79,7 +79,7 @@ def play_game(misere=False):
         display_board(board)
 
 class Position:
-    """Python mirror of C++ Position for checking game state"""
+    """Python mirror of C++ Position struct for checking game state"""
     def __init__(self, board):
         self.board = board
     
