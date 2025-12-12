@@ -170,5 +170,5 @@ else:
     print("Result: O wins")
 
 print("\n" + "=" * 50)
-print("Analysis complete! Add these results to your README.")
+print("Analysis complete!")
 print("=" * 50)
