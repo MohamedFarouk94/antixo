@@ -14,7 +14,7 @@ You know regular tic-tac-toe? Boring, right? Every game ends in a draw if both p
 
 **Anti-XO (Misère tic-tac-toe)** flips the rules: **getting three-in-a-row makes you LOSE**. Suddenly the game gets interesting.
 
-I made a solver to see what perfect play looks like. Spoiler: it's nothing like regular XO.
+I made a solver to see what perfect play looks like.
 
 ## Installation
 
@@ -33,7 +33,7 @@ If that doesn't work, ask your favorite LLM.
 ```
 Opening move scores: [0, 0, 0; 0, 0, 0; 0, 0, 0]
 ```
-((Oh I don't think I have to state that this represents the board on the form [1st row, 2nd row, 3rd row]))
+((Oh I don't think I have to state that this represents the board on the form [1st row, 2nd row, 3rd row]))\
 Translation: "Pick whatever. It's a draw. Always."
 
 Corners, edges, center - doesn't matter. The game is solved and boring.
@@ -73,14 +73,14 @@ Same board. Completely different optimal moves.
 ## What's in the box
 
 - **C++ solver** - minimax with alpha-beta pruning (fast enough)
-- **Python GUI** - pretty Tkinter interface with hover effects
+- **Python GUI** - pretty cool Tkinter interface
 - **Both modes** - toggle between regular and anti at runtime
 - **Live scores** - see which moves are good/bad in real-time
 
 ## GUI Features
 
 - Hover over squares to preview your move
-- Scores show up in each empty cell (faded so they're not annoying)
+- Scores show up in each empty cell
 - When someone wins/loses, the three squares light up
   - Green in regular mode (yay!)
   - Red in anti mode (oops!)
@@ -99,25 +99,24 @@ Standard minimax stuff:
 - Positive = good for X, negative = good for O, zero = draw
 - In anti mode, just multiply scores by -1 (big brain)
 - Prefer faster wins with depth scoring (10 - moves)
-- No memoization because depth matters
 
 Board encoding is base-3 (each cell is 0/1/2, so 3^9 possible states).
 
 ## Try it
 
-Open the GUI and play anti mode. Try to draw. It's genuinely hard.
+Open the GUI and play anti mode. Play both sides as you like.
 
-The solver will show you that most of your moves are terrible. Don't feel bad - most moves ARE terrible in anti-XO.
+The solver will show you that most of your moves are terrible. Don't feel bad. most moves ARE terrible in anti-XO.
 
 ## Why did you make this?
 
-Honestly? I was curious if anti tic-tac-toe was as different as people say. Turns out: yes, very.
+Honestly? I wanted to learn pybind11 and needed a small project for a course I'm taking this year. This seemed fun.
 
-Also I wanted to learn pybind11 and needed a small project. This seemed fun.
+Also it was a good opportunity to practice C++ (it has been ages since I used it in an actual thing)
 
 ## Files
 
-- `tictactoe_solver.cpp` - the actual solver
+- `xo.cpp` - the actual solver
 - `main.py` - GUI that looks pretty
 - `xo.py` - terminal version if you hate GUIs
 - `report.py` - nerdy stats I ran
@@ -125,8 +124,7 @@ Also I wanted to learn pybind11 and needed a small project. This seemed fun.
 ## Contributing
 
 If you want to improve this, go for it. Some ideas:
-- Make the AI dumber (add mistakes)
-- 4x4 board version
+- nxn board version
 - Actually explain WHY only center works in anti mode
 - Web version?
 
